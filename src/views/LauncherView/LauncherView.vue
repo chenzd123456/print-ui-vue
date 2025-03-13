@@ -1,10 +1,13 @@
 <template>
   <h1>Launcher</h1>
   <el-row :gutter="20">
-    <el-col v-for="card in cards" :key="card.name" :span="6">
+    <el-col v-for="card in cards" :key="card.id" :span="6">
       <RouterLink :to="{ name: card.routerName }">
         <el-card>
-          <h2>{{ card.name }}</h2>
+          <p>{{ card.content }}</p>
+          <template #footer>
+            <span>{{ card.title }}</span>
+          </template>
         </el-card>
       </RouterLink>
     </el-col>
@@ -12,16 +15,11 @@
 </template>
 <script setup>
 import { RouterLink } from 'vue-router'
-import { reactive } from 'vue'
+import { useCards } from '@/stores/cards'
+import { storeToRefs } from 'pinia'
 
-const cards = reactive([
-  { name: 'Scan', routerName: 'scan' },
-  { name: 'Copy', routerName: 'copy' },
-  { name: 'Setting', routerName: 'setting' },
-  { name: 'About', routerName: 'about' },
-])
-
-const handleClick = () => {}
+const store = useCards()
+const { cards } = storeToRefs(store)
 </script>
 <style scoped>
 .card {

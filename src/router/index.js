@@ -6,27 +6,27 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'launcher',
+      name: 'LauncherView',
       component: LauncherView,
     },
     {
       path: '/about',
-      name: 'about',
+      name: 'AboutView',
       component: () => import('@/views/AboutView'),
     },
     {
       path: '/setting',
-      name: 'setting',
+      name: 'SettingView',
       component: () => import('@/views/SettingView'),
     },
     {
       path: '/scan',
-      name: 'scan',
+      name: 'ScanView',
       component: () => import('@/views/ScanView'),
     },
     {
       path: '/copy',
-      name: 'copy',
+      name: 'CopyView',
       component: () => import('@/views/CopyView'),
     },
   ],
